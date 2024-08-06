@@ -1,0 +1,204 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<div class="auth-wrapper">
+  <div class="auth-content">
+    <div class="card">
+      <div class="row align-items-center text-center">
+        <div class="col-md-12">
+          <div class="card-body">
+            <form [formGroup]="loginForm">
+              <img src="../../../assets/images/logo-dark.png" alt="" class="img-fluid mb-4">
+              <h4 class="mb-3">Signin</h4>
+
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa-regular fa-envelope"></i></span>
+                </div>
+                <input type="email" formControlName="email" class="form-control" placeholder="Email address">
+
+              </div>
+              @if(loginForm.get('email').hasError('required') && loginForm.get('email').touched) {
+              <div class="error-message">Email is required</div>
+              }
+              @if(loginForm.get('email').hasError('email') && loginForm.get('email').touched) {
+              <div class="error-message">Please enter a valid email address</div>
+              }
+
+
+              <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
+                </div>
+                <input type="password" formControlName="password" class="form-control" placeholder="Password">
+              </div>
+              @if(loginForm.get('password').hasError('required') && loginForm.get('password').touched) {
+              <div class="error-message">Password is required</div>
+              }
+              @if(loginForm.get('password').hasError('pattern') && loginForm.get('password').touched) {
+              <div class="error-message">Please enter a valid password</div>
+              }
+
+
+              <div class="form-group text-left mt-2">
+                <div class="checkbox checkbox-primary d-inline">
+                  <input type="checkbox" name="checkbox-fill-1" id="checkbox-fill-a1" checked="">
+                  <label for="checkbox-fill-a1" class="cr"> Save credentials</label>
+                </div>
+              </div>
+
+              <button type="button" class="btn btn-block btn-primary mb-4" (click)="onLogin()">Signin</button>
+              <p class="mb-2 text-muted">Forgot password? <a class="">Reset</a></p>
+              <p class="mb-0 text-muted">Don't have an account? <a class="">Signup</a></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<div class="auth-main">
+  <div class="auth-content">
+    <div class="card">
+      <div class="card-body">
+        <form>
+          <img src="">
+          <div class="form-heading">
+            <h4>Signin</h4>
+          </div>
+
+          <div class="input-group ">
+            <div class="input-content">
+              <span class="input-icon"><i class="fa-regular fa-envelope"></i></span>
+            </div>
+            <input type="email" class="form-control" placeholder="Email address">
+          </div>
+          <div class="input-group">
+            <div class="input-content">
+              <span class="input-icon"><i class="fa-solid fa-lock"></i></span>
+            </div>
+            <input type="password" class="form-control" placeholder="Password">
+          </div>
+        <div class="email-input"><i class="fa-regular fa-envelope"></i><input type="email" placeholder="Email address"></div>
+          <div class="password-input"><i class="fa-solid fa-lock"> <input type="password" placeholder="Password"></i></div> 
+          <div class="checkbox-input"><input type="checkbox" checked> Save credentials</div>
+          <button type="submit">Signin</button>
+          <p> Forgot password?<a href="">Reset</a></p>
+          <p>Don't have an account?<a href="">Signup</a></p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div> -->
+<!-- <div class="auth-wrapper">
+    <div class="auth-content">
+      <div class="card">
+        <div class="row align-items-center text-center">
+          <div class="">
+            <div class="card-body">
+              <img src="assets/images/logo-dark.png" alt="" class="img-fluid mb-4">
+              <h4 class="mb-3 f-w-400">Signin</h4>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="feather icon-mail"></i></span>
+                </div>
+                <input type="email" class="form-control" placeholder="Email address">
+              </div>
+              <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="feather icon-lock"></i></span>
+                </div>
+                <input type="password" class="form-control" placeholder="Password">
+              </div>
+              <div class="form-group ">
+                <div class="checkbox ">
+                  <input type="checkbox" name="checkbox-fill-1" id="checkbox-fill-a1" checked="">
+                  <label for="checkbox-fill-a1" class="cr"> Save credentials</label>
+                </div>
+              </div>
+              <button class="">Signin</button>
+               <p class="mb-2 text-muted">Forgot password? <a [routerLink]="['/auth/reset-password']" class="f-w-400">Reset</a></p> 
+             <p class="mb-0 text-muted">Don’t have an account? <a [routerLink]="['/auth/signup']" class="f-w-400">Signup</a></p> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
+
+
+<!-- template driven form  practice-->
+<!-- <div class="form-container">
+    <p>template forms</p>
+    <form #userForm="ngForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" ngModel>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" ngModel>
+        <button (click)="onSubmit(userForm)">Submit</button>
+       
+    </form>
+</div> -->
+
+
+<!-- Reactive forms  practice-->
+<!-- <div class="form-container" *ngIf="isFormVisible">
+    <form [formGroup]="userForm">
+        {{this.userForm.value|json}}
+        <h1>{{message}}</h1>
+
+
+        <p> {{"hello" |uppercase}}</p>
+        <p> {{"0.25" |percent}}</p>
+
+
+        <p>Reactive Forms</p>
+        <ul>
+            <li *ngFor="let item of items">
+                {{item}}
+            </li>
+        </ul>
+        <div [ngSwitch]="userRole">
+            <div *ngSwitchCase="'admin'">
+                   <p>Admin</p>
+            </div>
+            <div *ngSwitchCase="'user'">
+                <p>User</p>
+         </div>
+         <div *ngSwitchDefault="">
+            <p>Guest</p>
+     </div>
+        </div>
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" formControlName="name">
+        </div>
+
+     <div *ngIf="userForm.get('name')?.hasError('required') &&userForm.get('name').touched">Name is Required</div> 
+
+<div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" formControlName="email">
+
+</div>
+<button (click)="onSubmit()"> Submit</button>
+</form>
+
+
+</div> -->

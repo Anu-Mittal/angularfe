@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+    margin:0;
+    padding:0;
+}
+
+$primary-color: #4680ff;
+$warning-color: #ffa21d;
+$danger-color: #ff5252;
+$success-color: #11c15b;
+$purple-color: #7759de;
+$info-color: #00ACC1;
+$secondary-color: #748892;
+$default-color: #d6d6d6;
+$light-color: #ECEFF1;
+$dark-color: #263238;
+$inverse-color: $dark-color;
+$theme-border: #e2e5e8;
+
+// @import 'scss/style.scss';
+// @import 'node_modules/bootstrap/scss/bootstrap';

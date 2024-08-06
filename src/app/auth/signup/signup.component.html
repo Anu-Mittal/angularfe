@@ -1,0 +1,116 @@
+<div class="signup-form">
+    <h2> SignUp Form</h2>
+    <form [formGroup]="signupForm">
+
+        <div class="form-group">
+            <label for="firstname" class="asterisk">First Name</label>
+            <input type="text" id="firstname" formControlName="firstname" placeholder="Enter your Firstname">
+            @if(signupForm.get('firstname').hasError('required') && signupForm.get('firstname').touched) {
+            <div class="error-message">First Name is required</div>
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="lastname" class="asterisk">Last Name</label>
+            <input type="text" id="lastname" formControlName="lastname" placeholder="Enter your Lastname">
+            @if(signupForm.get('lastname').hasError('required') && signupForm.get('lastname').touched) {
+            <div class="error-message">Last Name is required</div>
+            }
+        </div>
+
+
+        <div class="form-group">
+            <label for="email" class="asterisk">Email</label>
+            <input type="email" id="email" formControlName="email" placeholder="Enter your email">
+            @if(signupForm.get('email').hasError('required') && signupForm.get('email').touched) {
+            <div class="error-message">Email is required</div>
+            }
+            @if(signupForm.get('email').hasError('email') && signupForm.get('email').touched) {
+            <div class="error-message">Please enter a valid email address</div>
+            }
+        </div>
+
+        <!-- <div class="form-group">
+            <label for="age" class="asterisk">Age</label>
+            <input type="number" id="age" formControlName="age" placeholder="Enter your age">
+            @if(signupForm.get('age').hasError('required') && signupForm.get('age').touched) {
+            <div class="error-message">Age is required</div>
+            }
+            @if(signupForm.get('age').hasError('max') && signupForm.get('age').touched) {
+            <div class="error-message">Age must be less than or equal to 100</div>
+            }
+            @if(signupForm.get('age').hasError('min') && signupForm.get('age').touched) {
+            <div class="error-message">Age must be greater than 1</div>
+            }
+        </div> -->
+
+        <div class="form-group">
+            <label for="gender" class="asterisk">Gender</label>
+            <select id="gender" formControlName="gender" placeholder="Select your gender">
+                <option value="" disabled selected>Select your gender </option>
+                <option value="male"> Male</option>
+                <option value="female"> Female</option>
+                </select>
+            @if(signupForm.get('gender').hasError('required') && signupForm.get('gender').touched) {
+            <div class="error-message">Gender is required</div>
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="address" class="asterisk">Address</label>
+            <input type="text" id="address" formControlName="address" placeholder="Enter your address">
+            @if(signupForm.get('address').hasError('required') && signupForm.get('address').touched) {
+            <div class="error-message">Address is required</div>
+            }
+        </div>
+        <div class="form-group">
+            <label for="country" class="asterisk">Country</label>
+            <input type="text" id="country" formControlName="country" placeholder="Enter your country">
+            @if(signupForm.get('country').hasError('required') && signupForm.get('country').touched) {
+            <div class="error-message">Country is required</div>
+            }
+        </div>
+        <div class="form-group">
+            <label for="state" class="asterisk">State</label>
+            <input type="text" id="state" formControlName="state" placeholder="Enter your state ">
+            @if(signupForm.get('state').hasError('required') && signupForm.get('state').touched) {
+            <div class="error-message">State is required</div>
+            }
+        </div>
+        <div class="form-group">
+            <label for="city" class="asterisk">City</label>
+            <input type="text" id="city" formControlName="city" placeholder="Enter your city">
+            @if(signupForm.get('city').hasError('required') && signupForm.get('city').touched) {
+            <div class="error-message">City is required</div>
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="contact" class="asterisk">Contact</label>
+            <input type="number" id="contact" formControlName="contact" placeholder="Enter your contact">
+            @if(signupForm.get('contact').hasError('required') && signupForm.get('contact').touched) {
+            <div class="error-message">Contact is required</div>
+            }
+            @if(signupForm.get('contact').hasError('pattern') && signupForm.get('contact').touched) {
+            <div class="error-message">Please enter a valid 10 digit contact number</div>
+            }
+
+        </div>
+
+        <!-- <div class="form-group">
+            <label for="email" class="asterisk">Email</label>
+            <input type="email" id="email" formControlName="email" placeholder="Enter your email">
+            @if(signupForm.get('email').hasError('required') && signupForm.get('email').touched) {
+            <div class="error-message">Email is required</div>
+            }
+            @if(signupForm.get('email').hasError('email') && signupForm.get('email').touched) {
+            <div class="error-message">Please enter a valid email address</div>
+            }
+        </div> -->
+
+        <button type="submit" [disabled]="signupForm.invalid" (click)="submitForm()">Submit</button>
+
+
+
+    </form>
+</div>

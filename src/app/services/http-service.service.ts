@@ -11,5 +11,9 @@ export class HttpServiceService {
     loginPost(body:any){
       return this.http.post("http://localhost/angular_crud/em_be/api/v1/auth/login/",body)
     }
+    signupPost(body:any){
+      return this.http.post("http://localhost/angular_crud/em_be/api/v1/auth/signup/",body)
+    }
+
   
 }

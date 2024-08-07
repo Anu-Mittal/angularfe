@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient, provideHttpClient } from '@angular/common/http';
+// import { HttpClient, provideHttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 // import { FormsModule } from '@angular/forms';
 import {
@@ -9,6 +9,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+
 import { config } from 'rxjs';
 import { HttpServiceService } from '../../services/http-service.service';
 
@@ -40,15 +41,7 @@ export class LoginComponent {
   ngOnInit() {
     this.loginForm = this.formbuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      password: [
-        '',
-        [
-          Validators.required,
-          Validators.pattern(
-            '^(?=.*[a-z])(?=.*[A-Z])(?=.*d)(?=.*[!@#$%^&*()-_=+{};:,<.>])[A-Za-zd!@#$%^&*()-_=+{};:,<.>.]{8,}$'
-          ),
-        ],
-      ],
+      password: ['', [Validators.required]],
     });
   }
   onLogin() {
@@ -57,12 +50,12 @@ export class LoginComponent {
       user_password: this.loginForm.value.password,
     };
     this.httpService.loginPost(data).subscribe({
-      next: (response:any) => {
-        if(!response.status){
+      next: (response: any) => {
+        if (!response.status) {
           console.log(response.message);
-          return
+          return;
         }
-        localStorage.setItem("token",response.data.token)
+        localStorage.setItem('token', response.data.token);
       },
       error: (error) => {
         console.log(error);

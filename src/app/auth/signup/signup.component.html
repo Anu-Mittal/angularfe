@@ -1,4 +1,4 @@
-<div class="signup-form">
+<!-- <div class="signup-form">
     <h2> SignUp Form</h2>
     <form [formGroup]="signupForm">
 
@@ -28,9 +28,9 @@
             @if(signupForm.get('email').hasError('email') && signupForm.get('email').touched) {
             <div class="error-message">Please enter a valid email address</div>
             }
-        </div>
+        </div> -->
 
-        <!-- <div class="form-group">
+<!-- <div class="form-group">
             <label for="age" class="asterisk">Age</label>
             <input type="number" id="age" formControlName="age" placeholder="Enter your age">
             @if(signupForm.get('age').hasError('required') && signupForm.get('age').touched) {
@@ -44,7 +44,7 @@
             }
         </div> -->
 
-        <div class="form-group">
+<!-- <div class="form-group">
             <label for="gender" class="asterisk">Gender</label>
             <select id="gender" formControlName="gender" placeholder="Select your gender">
                 <option value="" disabled selected>Select your gender </option>
@@ -95,9 +95,9 @@
             <div class="error-message">Please enter a valid 10 digit contact number</div>
             }
 
-        </div>
+        </div> -->
 
-        <!-- <div class="form-group">
+<!-- <div class="form-group">
             <label for="email" class="asterisk">Email</label>
             <input type="email" id="email" formControlName="email" placeholder="Enter your email">
             @if(signupForm.get('email').hasError('required') && signupForm.get('email').touched) {
@@ -108,9 +108,135 @@
             }
         </div> -->
 
-        <button type="submit" [disabled]="signupForm.invalid" (click)="submitForm()">Submit</button>
+<!-- <button type="submit" [disabled]="signupForm.invalid" (click)="submitForm()">Submit</button>
+</form>
+</div> -->
+
+<style>
+  .error-message {
+    color: red;
+    font-size: 12px;
+  }
+</style>
+
+<div class="auth-wrapper">
+  <div class="auth-content">
+    <div class="card">
+      <div class="row align-items-center text-center">
+        <div class="col-md-12">
+          <div class="card-body">
+            <form [formGroup]="signupForm">
+              <img
+                src="../../../assets/images/logo-dark.png"
+                alt=""
+                class="img-fluid mb-4"
+              />
+              <h4 class="mb-3 f-w-400">Sign up</h4>
+
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"
+                    ><i class="feather icon-user"></i
+                  ></span>
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Firstname"
+                  formControlName="firstname"
+                />
+              </div>
+              @if(signupForm.get('firstname').hasError('required') &&
+              signupForm.get('firstname').touched) {
+              <div class="error-message">First Name is required</div>
+              }
+
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"
+                    ><i class="feather icon-user"></i
+                  ></span>
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Lastname"
+                  formControlName="lastname"
+                />
+              </div>
+              @if(signupForm.get('lastname').hasError('required') &&
+              signupForm.get('lastname').touched) {
+              <div class="error-message">Last Name is required</div>
+              }
+
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"
+                    ><i class="feather icon-mail"></i
+                  ></span>
+                </div>
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="Email address"
+                  formControlName="email"
+                />
+              </div>
+              @if(signupForm.get('email').hasError('required') &&
+              signupForm.get('email').touched) {
+              <div class="error-message">Email is required</div>
+              } @if(signupForm.get('email').hasError('email') &&
+              signupForm.get('email').touched) {
+              <div class="error-message">
+                Please enter a valid email address
+              </div>
+              }
+
+              <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"
+                    ><i class="feather icon-lock"></i
+                  ></span>
+                  </div>
+                <input
+                  type="password"
+                  class="form-control"
+                  placeholder="Password"
+                  formControlName="password"
+                />
+              </div>
+              
+              @if(signupForm.get('password').hasError('required') && signupForm.get('password').touched) {
+                <div class="error-message ">Enter Valid password</div>
+                }
+                <!-- @if(signupForm.get('password').hasError('pattern') && signupForm.get('password').touched) {
+                <div class="error-message">Please enter a valid password</div>
+                } -->
 
 
 
-    </form>
+              <div class="form-group text-left mt-2">
+                <div class="checkbox checkbox-primary d-inline">
+                  <input
+                    type="checkbox"
+                    name="checkbox-fill-2"
+                    id="checkbox-fill-2"
+                  />
+                  <label for="checkbox-fill-2" class="cr"
+                    >Send me the
+                    <a href="javascript:"> Newsletter</a> weekly.</label
+                  >
+                </div>
+              </div>
+              <button class="btn btn-block btn-primary  mb-4" type="button" (click)="onSignup()">Sign up</button>
+              <p class="mb-2">
+                Already have an account? <a class="f-w-400">Signin</a>
+              </p>
+        
+          
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

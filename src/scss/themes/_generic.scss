@@ -67,16 +67,16 @@ $i: 0;
 /*====== [ overrides bootstrap color ]text-color, background & border css starts ======*/
 @each $value in $color-bt-name {
     $i: index($color-bt-name, $value);
-    .bg-#{$value} {
+    .bg-#{'#{$value}'} {
         background-color: nth($color-bt-color,$i) !important;
     }
-    .text-#{$value} {
+    .text-#{'#{$value}'} {
         color: nth($color-bt-color,$i) !important;
     }
-    .b-#{$value} {
+    .b-#{'#{$value}'} {
         border: 1px solid nth($color-bt-color,$i) !important;
     }
-    .text-h-#{$value}:hover {
+    .text-h-#{'#{$value}'}:hover {
         color: nth($color-bt-color,$i) !important;
     }
 }
@@ -84,13 +84,13 @@ $i: 0;
 /*====== border color css starts ======*/
 @each $value in $color-bt-name {
     $i: index($color-bt-name, $value);
-    .b-#{$value} {
+    .b-#{'#{$value}'} {
         border: 1px solid nth($color-bt-color,$i);
     }
-    .border-bottom-#{$value} td{
+    .border-bottom-#{'#{$value}'} td{
         border-bottom: 1px solid nth($color-bt-color,$i);
     }
-    .border-bottom-#{$value} th{
+    .border-bottom-#{'#{$value}'}  th{
         border-bottom: 1px solid nth($color-bt-color,$i) !important;
     }
 }

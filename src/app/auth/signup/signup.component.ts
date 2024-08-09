@@ -8,6 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { config } from 'rxjs';
 import { HttpServiceService } from '../../services/http-service.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-signup',
@@ -20,7 +21,7 @@ export class SignupComponent {
   signupForm: any;
   isFormVisible: boolean = true;
 
-  constructor(private formbuilder: FormBuilder,private httpService: HttpServiceService,private route : Router) {
+  constructor(private formbuilder: FormBuilder,private httpService: HttpServiceService,private route : Router,private toastr: ToastrService) {
 
 
   }
@@ -57,9 +58,12 @@ export class SignupComponent {
         // if (!response.status) {
           console.log(response);
           if(!response.status){
-            console.log(response.message);
+            // console.log(response.message);
+            this.toastr.error(response.message);
+            
             return
           }
+          this.toastr.success("Signed In Successfully");
           this.route.navigate(['login']);
           // return;
         // }
@@ -67,6 +71,7 @@ export class SignupComponent {
       },
       error: (error) => {
         console.log(error);
+        this.toastr.error(error.error.message);
       },
     });
   }

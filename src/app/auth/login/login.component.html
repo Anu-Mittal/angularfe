@@ -16,7 +16,7 @@
           <div class="card-body">
             <form [formGroup]="loginForm">
               <img src="../../../assets/images/logo-dark.png" alt="" class="img-fluid mb-4">
-              <h4 class="mb-3 f-w-400">Signin</h4>
+              <h4 class="mb-3 f-w-400 ">Signin</h4>
 
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
@@ -54,9 +54,9 @@
                 </div>
               </div>
 
-              <button type="button" class="btn btn-block btn-primary mb-4" (click)="onLogin()">Signin</button>
-              <p class="mb-2 text-muted">Forgot password? <a  class="">Reset</a></p>
-              <p class="mb-0 text-muted">Don't have an account? <a  class="">Signup</a></p>
+              <button type="button" class="btn btn-block btn-primary mb-3 mt-3" (click)="onLogin()">Signin</button>
+              <p class="mb-2 text-muted">Forgot password? <a  class="" style="color: black;">Reset</a></p>
+              <p class="mb-0 text-muted">Don't have an account? <a  class="" style="color: black;">Signup</a></p>
             </form>
           </div>
         </div>
@@ -164,7 +164,7 @@
 
 
 <!-- Reactive forms  practice-->
-<!-- <div class="form-container" *ngIf="isFormVisible">
+<!-- <div class="form-container" **ngif="isFormVisible">
     <form [formGroup]="userForm">
         {{this.userForm.value|json}}
         <h1>{{message}}</h1>
@@ -196,7 +196,7 @@
             <input type="text" id="name" name="name" formControlName="name">
         </div>
 
-     <div *ngIf="userForm.get('name')?.hasError('required') &&userForm.get('name').touched">Name is Required</div> 
+     <div **ngif="userForm.get('name')?.hasError('required') &&userForm.get('name').touched">Name is Required</div> 
 
 <div>
     <label for="email">Email:</label>

@@ -192,7 +192,21 @@
               </div>
               }
 
-              <div class="input-group mb-4">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"
+                    ><i class="feather icon-lock"></i
+                  ></span>
+                </div>
+                <input
+                  type="password"
+                  class="form-control"
+                  placeholder="Password"
+                  formControlName="password"
+                />
+              </div>
+
+              <!-- <div class="input-group mb-4">
                 <div class="input-group-prepend">
                   <span class="input-group-text"
                     ><i class="feather icon-lock"></i
@@ -205,15 +219,14 @@
                   formControlName="password"
                 />
               </div>
-              
-              @if(signupForm.get('password').hasError('required') && signupForm.get('password').touched) {
-                <div class="error-message ">Enter Valid password</div>
-                }
-                <!-- @if(signupForm.get('password').hasError('pattern') && signupForm.get('password').touched) {
+               -->
+              @if(signupForm.get('password').hasError('required') &&
+              signupForm.get('password').touched) {
+              <div class="error-message">Enter Valid password</div>
+              }
+              <!-- @if(signupForm.get('password').hasError('pattern') && signupForm.get('password').touched) {
                 <div class="error-message">Please enter a valid password</div>
                 } -->
-
-
 
               <div class="form-group text-left mt-2">
                 <div class="checkbox checkbox-primary d-inline">
@@ -223,18 +236,22 @@
                     id="checkbox-fill-2"
                   />
                   <label for="checkbox-fill-2" class="cr"
-                    >Send me the
-                    <a href="javascript:"> Newsletter</a> weekly.</label
+                    >Send me the Newsletter weekly.</label
                   >
                 </div>
               </div>
-              <button class="btn btn-block btn-primary  mb-4" type="button" (click)="onSignup()">Sign up</button>
-              <p class="mb-2">
-                Already have an account? <a class="f-w-400">Signin</a>
+              <button
+                class="btn btn-block btn-primary mb-3 mt-3"
+                type="button"
+                (click)="onSignup()"
+              >
+                Sign up
+              </button>
+              <p class="mb-2 text-muted">
+                Already have an account? <a class="f-w-400" style="color: black;" >Signin</a>
               </p>
-        
-          
-          </form>
+            </form>
+          </div>
         </div>
       </div>
     </div>

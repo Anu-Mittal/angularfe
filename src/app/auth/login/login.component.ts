@@ -12,6 +12,7 @@ import {
 
 import { config } from 'rxjs';
 import { HttpServiceService } from '../../services/http-service.service';
+import { ToastrService } from 'ngx-toastr';
 
 // import{log} from 'console';
 
@@ -36,7 +37,8 @@ export class LoginComponent {
 
   constructor(
     public formbuilder: FormBuilder,
-    private httpService: HttpServiceService
+    private httpService: HttpServiceService,
+    private toastr: ToastrService
   ) {}
   ngOnInit() {
     this.loginForm = this.formbuilder.group({
@@ -52,13 +54,16 @@ export class LoginComponent {
     this.httpService.loginPost(data).subscribe({
       next: (response: any) => {
         if (!response.status) {
-          console.log(response.message);
+          // console.log(response.message);
+          this.toastr.error(response.message);
           return;
         }
         localStorage.setItem('token', response.data.token);
+        this.toastr.success("Logged In Successfully");
       },
       error: (error) => {
         console.log(error);
+        this.toastr.error(error.error.message);
       },
     });
   }
